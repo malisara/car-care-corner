@@ -1,18 +1,26 @@
+/*
+main title: gray.800
+
+Color mode combos:
+
+offwhite-gray.600
+offwhite-teal.900
+
+gray.800 - white
+gray.700-white
+
+*/
+
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
     colors: {
-        red: '#E63946',
         deepblue: '#1D3557',
         offwhite: '#F1FAEE',
-        blue: '#457B9D',
-        lightblue: '#A8DADC'
     },
 
-    fonts: {
-        heading: `'Roboto', sans-serif`,
-        body: `'Nunito', sans-serif`,
-    }
+    initialColorMode: 'light',
+    useSystemColorMode: false,
 });
 
 export default extendTheme(theme)
