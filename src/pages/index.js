@@ -8,11 +8,12 @@ export default function Home() {
     <>
       <Navbar></Navbar>
       <HeroBanner></HeroBanner>
-      <BaseSection title='Products' bgColor={false}></BaseSection>
 
-      <section>products</section>
+      <BaseSection title='Products' bgColor={false}>
+      </BaseSection>
+      {/* <section>products</section>
       <section>contact</section>
-      <section>visit us</section>
+      <section>visit us</section> */}
       <footer></footer>
 
     </>
