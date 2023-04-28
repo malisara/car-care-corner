@@ -1,0 +1,12 @@
+/*Products*/
+
+.productImage {
+    max-width: 18rem;
+    object-fit: cover;
+    will-change: transform;
+    transition: transform .2s;
+}
+
+.productImage:hover {
+    transform: scale(1.05);
+}
