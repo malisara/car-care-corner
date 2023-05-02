@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     TableContainer,
     Thead,
@@ -13,8 +13,6 @@ import {
 import {
     TimeIcon
 } from '@chakra-ui/icons';
-import { useStaticQuery, graphql } from 'gatsby';
-
 
 
 const openingHours = [
@@ -25,30 +23,36 @@ const openingHours = [
 
 
 export default function VisitUs() {
+
+    const [holidays, setHolidays] = useState([]);
+    useEffect(() => {
+        const controller = new AbortController();
+        setTimeout(() => controller.abort(), 8000);
+
+        fetch(`https://date.nager.at/api/v3/PublicHolidays/2023/US`,
+            { signal: controller.signal })
+
+            .then(response => response.json())
+            .then(resultData => {
+                setHolidays(resultData.map((x) => {
+                    return {
+                        date: new Date(x.date).toLocaleDateString('en-US'),
+                        localName: x.localName
+                    };
+                }));
+
+            })
+            .catch(() => { });
+    }, []);
+
+
     const dateToday = new Date();
-    const query = useStaticQuery(graphql` 
-    query {
-        allHolidayDates {
-          nodes {
-            date
-            localName
-          }
-        }
-      }
-      `);
-
-    const holidays = query.allHolidayDates.nodes.map(holiday => {
-        return [new Date(holiday.date).toLocaleDateString('en-US'), holiday.localName];
-    });
-
-    //TODO handle fetch error
-
 
     function checkHowLongOpen() {
 
-        for (const [date, holiday] of holidays) {
-            if (date === dateToday.toLocaleDateString('en-US')) {
-                return 'CLOSED (' + holiday + ')';
+        for (const holiday of holidays) {
+            if (holiday.date === dateToday.toLocaleDateString('en-US')) {
+                return 'CLOSED (' + holiday.localName + ')';
             }
         }
 
