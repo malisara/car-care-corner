@@ -3,6 +3,7 @@ import BaseSection from "../components/BaseSection";
 import HeroBanner from "../components/HeroBanner";
 import Navbar from '../components/Navbar';
 import Products from "../components/Products";
+import VisitUs from "../components/VisitUs";
 import {
   Flex,
 } from '@chakra-ui/react';
@@ -19,6 +20,10 @@ export default function Home() {
         </Flex>
       </BaseSection>
 
+      <BaseSection title='Visit us' bgColor={true}>
+        <VisitUs></VisitUs>
+      </BaseSection>
+
       {/* <section>products</section>
       <section>contact</section>
       <section>visit us</section> */}
@@ -28,3 +33,5 @@ export default function Home() {
   );
 
 }
+
+
