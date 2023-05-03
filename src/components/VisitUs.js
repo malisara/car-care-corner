@@ -1,109 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
-    TableContainer,
-    Thead,
-    Tbody,
+    Flex,
+    Heading,
     Table,
+    TableContainer,
+    Tbody,
     Td,
+    Text,
     Tr,
-    Th,
-    Alert
 } from '@chakra-ui/react';
 
-import {
-    TimeIcon
-} from '@chakra-ui/icons';
 
+export default function VisitUs({ openingHours }) {
 
-const openingHours = [
-    { 'weekday': 'Mon-Fri', 'hours': { 'start': 9, 'end': 17 } },
-    { 'weekday': 'Sat', 'hours': { 'start': 9, 'end': 12 } },
-    { 'weekday': 'Sun', 'hours': { 'start': 0, 'end': 0 } }
-];
-
-
-export default function VisitUs() {
-
-    const [holidays, setHolidays] = useState([]);
-    useEffect(() => {
-        const controller = new AbortController();
-        setTimeout(() => controller.abort(), 8000);
-
-        fetch(`https://date.nager.at/api/v3/PublicHolidays/2023/US`,
-            { signal: controller.signal })
-
-            .then(response => response.json())
-            .then(resultData => {
-                setHolidays(resultData.map((x) => {
-                    return {
-                        date: new Date(x.date).toLocaleDateString('en-US'),
-                        localName: x.localName
-                    };
-                }));
-
-            })
-            .catch(() => { });
-    }, []);
-
-
-    const dateToday = new Date();
-
-    function checkHowLongOpen() {
-
-        for (const holiday of holidays) {
-            if (holiday.date === dateToday.toLocaleDateString('en-US')) {
-                return 'CLOSED (' + holiday.localName + ')';
-            }
-        }
-
-        const dayIndexToday = dateToday.getDay();
-
-        if (dayIndexToday > 0 && dayIndexToday <= 5) {
-            return storeOpenOrClosed(0);
-        }
-
-        if (dayIndexToday === 6) {
-            if (dayIndexToday > 0 && dayIndexToday <= 5) {
-                return storeOpenOrClosed(1);
-            }
-        }
-
-        else {
-            if (dayIndexToday > 0 && dayIndexToday <= 5) {
-                return storeOpenOrClosed(2);
-            }
-        }
-
-    }
-
-    function storeOpenOrClosed(index) {
-        if (dateToday.getHours() >= openingHours[index].hours.start &&
-            dateToday.getHours() < openingHours[index].hours.end) {
-            return 'OPEN';
-        }
-        return 'CLOSED';
-    }
-
-    const isOpen = checkHowLongOpen().includes('OPEN');
-    const howLongOpen = checkHowLongOpen();
     return (
-        <>
-            <Alert status={isOpen ? 'success' : 'error'} fontSize='lg' w='fit'>
-                Now: {howLongOpen}
-            </Alert>
+        <Flex direction='column' alignItems='center'>
 
-            <TableContainer pt={5}>
-                <Table variant='unstyled'>
-                    <Thead>
-                        <Tr>
-                            <Th>
-                                Opening Hours
-                            </Th>
+            <Heading fontSize={'xl'} p={4}>Address</Heading>
+            <Text pb={10}>123 Main Street <br />
+                Anytown, USA 12345</Text>
 
-                            <Th><TimeIcon /></Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
+            <Heading fontSize={'xl'} p={4}>Contact</Heading>
+            <Text pb={10}>John: 0123456789 <br />
+                Tony: 1234567890</Text>
+
+            <Heading fontSize={'xl'}>Opening hours</Heading>
+            <TableContainer py={5}>
+                <Table variant='unstyled' w='fit'>
+                    <Tbody alignContent='start'>
                         {openingHours.map((dayHour, i) => (
                             <Tr key={i}>
                                 <Td > {dayHour.weekday}</Td>
@@ -116,7 +40,9 @@ export default function VisitUs() {
                         ))}
                     </Tbody>
                 </Table>
+
             </TableContainer>
-        </>
+
+        </Flex>
     );
 };
