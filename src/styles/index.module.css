@@ -5,6 +5,7 @@
     object-fit: cover;
     will-change: transform;
     transition: transform .2s;
+    margin: 0.5rem;
 }
 
 .productImage:hover {

@@ -1,5 +1,6 @@
 import * as React from "react";
 import BaseSection from "../components/BaseSection";
+import ContactForm from "../components/ContactForm";
 import HeroBanner from "../components/HeroBanner";
 import Location from "../components/Location";
 import Navbar from '../components/Navbar';
@@ -75,6 +76,11 @@ export default function Home() {
         </Flex>
       </BaseSection>
 
+
+
+      <BaseSection title='Products' bgColor={false}>
+        <ContactForm></ContactForm>
+      </BaseSection>
 
 
       {/* <section>products</section>

@@ -17,14 +17,14 @@ export default function VisitUs({ openingHours }) {
         <Flex direction='column' alignItems='center'>
 
             <Heading fontSize={'xl'} p={4}>Address</Heading>
-            <Text pb={10}>123 Main Street <br />
+            <Text pb={{ base: 4, md: 10 }}>123 Main Street <br />
                 Anytown, USA 12345</Text>
 
             <Heading fontSize={'xl'} p={4}>Contact</Heading>
-            <Text pb={10}>John: 0123456789 <br />
+            <Text pb={{ base: 4, md: 10 }}>John: 0123456789 <br />
                 Tony: 1234567890</Text>
 
-            <Heading fontSize={'xl'}>Opening hours</Heading>
+            <Heading fontSize={'xl'} pt={4}>Opening hours</Heading>
             <TableContainer py={5}>
                 <Table variant='unstyled' w='fit'>
                     <Tbody alignContent='start'>
