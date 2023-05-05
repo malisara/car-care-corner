@@ -78,7 +78,7 @@ export default function Home() {
 
 
 
-      <BaseSection title='Products' bgColor={false}>
+      <BaseSection title='Contact' bgColor={false}>
         <ContactForm></ContactForm>
       </BaseSection>
 

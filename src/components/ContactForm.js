@@ -9,6 +9,7 @@ import {
     FormControl,
     FormHelperText,
     useDisclosure,
+    Heading,
 } from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 
@@ -46,7 +47,8 @@ export default function ContactForm() {
 
     return (
         <div>
-
+            <Heading fontSize={'xl'} textAlign='center'
+                py={4}>Send us a message</Heading>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Stack spacing={3}>
 
@@ -55,6 +57,7 @@ export default function ContactForm() {
                             onKeyUp={enableButton}
                             errorBorderColor={formErrorColor}
                             placeholder='E-mail'
+                            _placeholder={{ color: formFocusColor }}
                             focusBorderColor={formFocusColor}
                             {...register('mail',
                                 {
@@ -79,6 +82,7 @@ export default function ContactForm() {
                         <Textarea as='input'
                             onKeyUp={enableButton}
                             placeholder='Message'
+                            _placeholder={{ color: formFocusColor }}
                             focusBorderColor={formFocusColor}
                             errorBorderColor={formErrorColor}
                             {...register('message',
