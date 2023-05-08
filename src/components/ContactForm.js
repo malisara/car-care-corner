@@ -14,6 +14,19 @@ import {
 import { useForm } from "react-hook-form";
 
 
+const validationMessages = {
+    email: {
+        required: 'Email is required',
+        pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: 'Invalid email format',
+        },
+    },
+    message: {
+        required: 'Message is required',
+    },
+};
+
 export default function ContactForm() {
     const formFocusColor = useColorModeValue('gray.400', 'offwhite');
     const formErrorColor = useColorModeValue('red.500', 'red.700');
@@ -25,15 +38,15 @@ export default function ContactForm() {
 
 
     function onSubmit(data) {
+        //TODO add loading state to prevent the user from submitting the form twice
         onOpen();
-        const submittedData = data;
+        const submittedData = data;  //TODO send actual data
         reset();
         setMailValue(0);
         setMessageValue(0);
-        // TODO send data 
     }
 
-    function enableButton(e) { //TODO
+    function enableButton(e) {
         if (e.target.placeholder === 'E-mail') {
             setMailValue(e.target.value.trim().length);
         }
@@ -43,30 +56,22 @@ export default function ContactForm() {
         }
     }
 
-
-
     return (
         <div>
             <Heading fontSize={'xl'} textAlign='center'
                 py={4}>Send us a message</Heading>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} onBlur={enableButton}>
                 <Stack spacing={3}>
 
-                    <FormControl isInvalid={errors.mail?.message !== undefined}>
+                    <FormControl
+                        isInvalid={errors.mail?.message !== undefined}
+                        isRequired>
                         <Input
-                            onKeyUp={enableButton}
                             errorBorderColor={formErrorColor}
                             placeholder='E-mail'
                             _placeholder={{ color: formFocusColor }}
                             focusBorderColor={formFocusColor}
-                            {...register('mail',
-                                {
-                                    required: 'This field is required',
-                                    pattern: {
-                                        value: /\S+@\S+\.\S+/,
-                                        message: "Please enter a valid email"
-                                    }
-                                })}
+                            {...register('mail', validationMessages.email)}
                         />
 
                         {errors.mail?.message && (
@@ -77,16 +82,15 @@ export default function ContactForm() {
 
                     </FormControl>
 
-
-                    <FormControl isInvalid={errors.message?.message !== undefined}>
+                    <FormControl
+                        isInvalid={errors.message?.message !== undefined}
+                        isRequired>
                         <Textarea as='input'
-                            onKeyUp={enableButton}
                             placeholder='Message'
                             _placeholder={{ color: formFocusColor }}
                             focusBorderColor={formFocusColor}
                             errorBorderColor={formErrorColor}
-                            {...register('message',
-                                { required: 'This field is required' })}
+                            {...register('message', validationMessages.message)}
                         />
 
                         {errors.message?.message && (
