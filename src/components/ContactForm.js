@@ -8,8 +8,8 @@ import {
     AlertDialogCloseButton,
     FormControl,
     FormHelperText,
+    Text,
     useDisclosure,
-    Heading,
 } from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 
@@ -58,8 +58,9 @@ export default function ContactForm() {
 
     return (
         <div>
-            <Heading fontSize={'xl'} textAlign='center'
-                py={4}>Send us a message</Heading>
+            <Text textAlign='center'
+                py={4}>Do you have a question?
+            </Text>
             <form onSubmit={handleSubmit(onSubmit)} onBlur={enableButton}>
                 <Stack spacing={3}>
 

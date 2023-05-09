@@ -1,6 +1,7 @@
 import * as React from "react";
 import BaseSection from "../components/BaseSection";
 import ContactForm from "../components/ContactForm";
+import ContactInfo from "../components/ContactInfo";
 import HeroBanner from "../components/HeroBanner";
 import Location from "../components/Location";
 import Navbar from '../components/Navbar';
@@ -54,7 +55,7 @@ export default function Home() {
         </Flex>
       </BaseSection>
 
-      <BaseSection title='Visit us' bgColor={true}>
+      <BaseSection title='Visit us' paddingBottom={{ base: 2, md: 1 }} bgColor={true}>
         <Tag colorScheme={howLongOpen.includes('OPEN') ? 'green' : 'red'}
           borderRadius='md'
           variant='solid'
@@ -70,22 +71,22 @@ export default function Home() {
           <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
             <VisitUs openingHours={openingHours}></VisitUs>
           </Flex>
-
-
-          <Location></Location>
+          <Location />
         </Flex>
-      </BaseSection>
+      </BaseSection >
 
 
 
       <BaseSection title='Contact' bgColor={false}>
-        <ContactForm></ContactForm>
+        <Flex wrap='wrap' w='70%' alignItems='center' justifyContent='center'>
+          <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
+            <ContactInfo />
+          </Flex>
+          <ContactForm />
+        </Flex>
+
       </BaseSection>
 
-
-      {/* <section>products</section>
-      <section>contact</section>
-      <section>visit us</section> */}
       <footer></footer>
 
     </>

@@ -6,9 +6,9 @@ import {
     TableContainer,
     Tbody,
     Td,
-    Text,
     Tr,
 } from '@chakra-ui/react';
+import TextParagraph from './TextParagraph';
 
 
 export default function VisitUs({ openingHours }) {
@@ -16,13 +16,9 @@ export default function VisitUs({ openingHours }) {
     return (
         <Flex direction='column' alignItems='center'>
 
-            <Heading fontSize={'xl'} p={4}>Address</Heading>
-            <Text pb={{ base: 4, md: 10 }}>123 Main Street <br />
-                Anytown, USA 12345</Text>
-
-            <Heading fontSize={'xl'} p={4}>Contact</Heading>
-            <Text pb={{ base: 4, md: 10 }}>John: 0123456789 <br />
-                Tony: 1234567890</Text>
+            <TextParagraph title={'Address'}
+                text={['123 Main Street', 'Anytown, USA 12345']}>
+            </TextParagraph>
 
             <Heading fontSize={'xl'} pt={4}>Opening hours</Heading>
             <TableContainer py={5}>

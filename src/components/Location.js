@@ -6,7 +6,7 @@ export default function Location() {
     return (
 
         <MapContainer
-            style={{ height: '450px', width: '450px' }}
+            style={{ height: '350px', width: '350px' }}
             center={storeLocation}
             zoom={17}
         >
