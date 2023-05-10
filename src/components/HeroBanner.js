@@ -20,7 +20,7 @@ export default function HeroBanner() {
             <Flex direction='column'
                 w={{ base: 'full', '2xl': '50%' }}
                 textAlign={{ base: 'center', xl: 'justify' }}
-                ms={{ xl: '50' }}
+                ms={{ xl: '60' }}
                 pt={{ xl: '50' }}>
                 <Heading sd='h1'
                     size='3xl'
@@ -49,7 +49,7 @@ export default function HeroBanner() {
                 </Text>
             </Flex>
 
-            <Flex mt={{ base: '10', xl: '0' }} me={{ base: '0', xl: '50' }}
+            <Flex mt={{ base: '10', xl: '0' }} me={{ base: '0', xl: '60' }}
                 justifyContent='end' >
                 <StaticImage src="../images/hero-image-2.png"
                     alt="A gray sport car" />
