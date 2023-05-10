@@ -1,23 +1,61 @@
 import React from 'react';
 import { StaticImage } from "gatsby-plugin-image";
 import {
-    Box,
     Heading,
-    VStack,
+    Flex,
     Text,
     useColorModeValue,
 } from '@chakra-ui/react';
 
 export default function HeroBanner() {
     return (
-        <Box bg={useColorModeValue('offwhite', 'gray.800')} flexDirection='column' display='flex' alignItems='center'>
-            <VStack py={[10, 20, 90]} px={3} w='full'>
-                <Heading sd='h1' size='2xl' color={useColorModeValue('gray.800', 'offwhite')}>Car Care Corner</Heading>
-                <Text fontSize={{ base: 'lg', md: '2xl' }} pt={5}>
-                    Drive in style - maintain & repair like pro
+        <Flex
+            height='fit'
+            bg={useColorModeValue('offwhite', 'darkblue')}
+            direction='column'
+            px={10}
+            py={15}
+        >
+
+            <Flex direction='column'
+                w={{ base: 'full', '2xl': '50%' }}
+                textAlign={{ base: 'center', xl: 'justify' }}
+                ms={{ xl: '50' }}
+                pt={{ xl: '50' }}>
+                <Heading sd='h1'
+                    size='3xl'
+                    color={useColorModeValue('darkblue', 'offwhite')}>
+                    Car Care Corner
+                </Heading>
+
+                <Text fontSize={{ base: 'lg', md: '2xl' }} as='b' pt={5}
+                    color={useColorModeValue('darkblue', 'offwhite')}>
+                    Drive in style,
+                    maintain & repair like pro
                 </Text>
-            </VStack>
-            <StaticImage src="../images/hero-image.png" alt="A yellow sport car" />
-        </Box >
+
+                <Text
+                    py={5}
+                    w={{ base: 'full', xl: '60%' }}
+                    as='i'
+                    lineHeight={7}
+                >
+                    Welcome to our one-stop shop for vehicle owners and enthusiasts!
+
+                    Our comprehensive inventory includes everything required to maintain and
+                    repair your beloved ride. Whether you're looking for a specific
+                    part or want to give your car a fresh look, we've got you
+                    covered
+                </Text>
+            </Flex>
+
+            <Flex mt={{ base: '10', xl: '0' }} me={{ base: '0', xl: '50' }}
+                justifyContent='end' >
+                <StaticImage src="../images/hero-image-2.png"
+                    alt="A gray sport car" />
+            </Flex>
+
+        </Flex >
+
     );
 }
