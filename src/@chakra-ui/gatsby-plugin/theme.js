@@ -17,7 +17,7 @@ import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
     colors: {
-        offwhite: '#f8f9f9',
+        offwhite: '#F6FBF4', //#f8f9f9
         darkblue: '#0c2d48',
         darkdarkblue: '#050a30',
     },

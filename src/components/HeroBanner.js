@@ -8,10 +8,12 @@ import {
 } from '@chakra-ui/react';
 
 export default function HeroBanner() {
+    const textColor = useColorModeValue('darkblue', 'offwhite');
+    const bgColor = useColorModeValue('offwhite', 'darkdarkblue');
     return (
         <Flex
             height='fit'
-            bg={useColorModeValue('offwhite', 'darkblue')}
+            bg={bgColor}
             direction='column'
             px={10}
             py={15}
@@ -24,12 +26,12 @@ export default function HeroBanner() {
                 pt={{ xl: '50' }}>
                 <Heading sd='h1'
                     size='3xl'
-                    color={useColorModeValue('darkblue', 'offwhite')}>
+                    color={textColor}>
                     Car Care Corner
                 </Heading>
 
                 <Text fontSize={{ base: 'lg', md: '2xl' }} as='b' pt={5}
-                    color={useColorModeValue('darkblue', 'offwhite')}>
+                    color={textColor}>
                     Drive in style,
                     maintain & repair like pro
                 </Text>

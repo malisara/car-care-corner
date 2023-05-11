@@ -8,6 +8,9 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: `Car Care Corner`,
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -55,6 +58,16 @@ module.exports = {
         linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Car Care Corner`,
+        lang: 'en',
+        start_url: `/`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`
+      },
+    }
 
   ],
 };

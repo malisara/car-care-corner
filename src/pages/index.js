@@ -2,11 +2,13 @@ import * as React from "react";
 import BaseSection from "../components/BaseSection";
 import ContactForm from "../components/ContactForm";
 import ContactInfo from "../components/ContactInfo";
+import Footer from "../components/Footer";
 import HeroBanner from "../components/HeroBanner";
 import Location from "../components/Location";
 import Navbar from '../components/Navbar';
 import Products from "../components/Products";
 import VisitUs from "../components/VisitUs";
+import { useStaticQuery, graphql } from 'gatsby';
 import { Flex, Tag, TagLabel, } from '@chakra-ui/react';
 
 const dateToday = new Date();
@@ -49,15 +51,27 @@ export default function Home() {
       <Navbar></Navbar>
       <HeroBanner></HeroBanner>
 
-      <BaseSection title='Products' bgColor={false}>
+      <BaseSection title='Products'>
         <Flex flexWrap='wrap' justifyContent='center'>
           <Products></Products>
         </Flex>
       </BaseSection>
 
-      <BaseSection title='Visit us' paddingBottom={{ base: 2, md: 1 }} bgColor={true}>
-        <Tag colorScheme={howLongOpen.includes('OPEN') ? 'green' : 'red'}
-          borderRadius='md'
+      <BaseSection title='Contact' bgColor={true}>
+        <Flex wrap='wrap' w='80%' alignItems='start' justifyContent='center'>
+          <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
+            <ContactInfo />
+          </Flex>
+          <ContactForm />
+        </Flex>
+      </BaseSection>
+
+      <BaseSection
+        title='Visit us'
+        paddingBottom={{ base: 2, md: 0 }}>
+        <Tag
+          colorScheme={howLongOpen.includes('OPEN') ? 'teal' : 'red'}
+          borderRadius='full'
           variant='solid'
           size={'lg'}
           p={3}
@@ -65,9 +79,15 @@ export default function Home() {
         >
           <TagLabel>Now: {howLongOpen}</TagLabel>
         </Tag>
-        <br />
 
-        <Flex wrap='wrap' w='80%' alignItems='center' justifyContent='center'>
+        <Flex
+          wrap='wrap'
+          w='80%'
+          alignItems='center' j
+          ustifyContent='center'
+          pt={{ base: '2', lg: '10' }}
+          justifyContent='center'>
+
           <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
             <VisitUs openingHours={openingHours}></VisitUs>
           </Flex>
@@ -77,17 +97,7 @@ export default function Home() {
 
 
 
-      <BaseSection title='Contact' bgColor={false}>
-        <Flex wrap='wrap' w='70%' alignItems='center' justifyContent='center'>
-          <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
-            <ContactInfo />
-          </Flex>
-          <ContactForm />
-        </Flex>
-
-      </BaseSection>
-
-      <footer></footer>
+      <Footer />
 
     </>
   );
@@ -130,3 +140,17 @@ function storeOpenOrClosed(index) {
   }
   return 'CLOSED';
 }
+
+
+export const Head = () => {
+  const data = useStaticQuery(graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+  `);
+  return <title>{data.site.siteMetadata.title}</title>;
+};

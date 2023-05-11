@@ -23,18 +23,21 @@ import {
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
     const { toggleColorMode } = useColorMode();
+    const navbarBg = useColorModeValue('offwhite', 'darkdarkblue');
+    const navbarIcon = useColorModeValue('gray.600', 'white');
+    const navbarBorder = useColorModeValue('gray.200', 'darkblue');
 
     return (
         <Box as='nav'>
             <Flex
-                bg={useColorModeValue('offwhite', 'gray.800')}
-                color={useColorModeValue('gray.600', 'white')}
+                bg={navbarBg}
+                color={navbarIcon}
                 minH={'60px'}
                 py={{ base: 2 }}
                 px={{ base: 4 }}
                 borderBottom={1}
                 borderStyle={'solid'}
-                borderColor={useColorModeValue('gray.200', 'gray.800')}
+                borderColor={navbarBorder}
                 align={'center'}>
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
@@ -53,8 +56,8 @@ export default function Navbar() {
                     <Text
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
-                        color={useColorModeValue('gray.800', 'white')}>
-                        Logo
+                        color={navbarIcon}>
+                        Car Care Corner
                     </Text>
 
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -84,7 +87,7 @@ export default function Navbar() {
 }
 
 const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
+    const linkColor = useColorModeValue('gray.600', 'gray.300');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
 
     return (
@@ -114,7 +117,7 @@ const DesktopNav = () => {
 const MobileNav = () => {
     return (
         <Stack
-            bg={useColorModeValue('offwhite', 'gray.800')}
+            bg={useColorModeValue('offwhite', 'darkdarkblue')}
             p={4}
             display={{ md: 'none' }}>
             {NAV_ITEMS.map((navItem) => (
@@ -126,6 +129,7 @@ const MobileNav = () => {
 
 const MobileNavItem = ({ label, href }) => {
     const { isOpen, onToggle } = useDisclosure();
+    const linkColor = useColorModeValue('gray.600', 'gray.300');
 
     return (
         <Stack spacing={4} onClick={onToggle}>
@@ -140,7 +144,7 @@ const MobileNavItem = ({ label, href }) => {
                 }}>
                 <Text
                     fontWeight={600}
-                    color={useColorModeValue('gray.600', 'gray.200')}>
+                    color={{ linkColor }}>
                     {label}
                 </Text>
             </Flex>
@@ -164,15 +168,15 @@ const MobileNavItem = ({ label, href }) => {
 const NAV_ITEMS = [
     {
         label: 'Products',
-        href: '#',
+        href: '#products',
     },
     {
         label: 'Contact',
-        href: '#',
+        href: '#contact',
     },
     {
         label: 'Visit us',
-        href: '#',
+        href: '#visit us',
     },
 
 ];

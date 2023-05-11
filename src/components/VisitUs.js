@@ -20,14 +20,13 @@ export default function VisitUs({ openingHours }) {
                 text={['123 Main Street', 'Anytown, USA 12345']}>
             </TextParagraph>
 
-            <Heading fontSize={'xl'} pt={4}>Opening hours</Heading>
+            <Heading fontSize={'xl'} pt={4} as='h3'>Opening hours</Heading>
             <TableContainer py={5}>
-                <Table variant='unstyled' w='fit'>
+                <Table variant='simple' w='fit'>
                     <Tbody alignContent='start'>
                         {openingHours.map((dayHour, i) => (
                             <Tr key={i}>
                                 <Td > {dayHour.weekday}</Td>
-
                                 {dayHour.hours.start === 0 ?
                                     (<Td textAlign='start'>closed</Td>) :
                                     <Td textAlign='start'>{dayHour.hours.start}-{dayHour.hours.end}</Td>

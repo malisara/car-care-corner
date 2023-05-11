@@ -4,15 +4,18 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import {
     Card,
     CardBody,
+    Flex,
     Heading,
     Stack,
     Text,
-    Flex,
+    useColorModeValue
 } from '@chakra-ui/react';
 import { productImage } from '../styles/index.module.css';
 
 
 export default function Products() {
+    const cardBgColor = useColorModeValue('offwhite', 'darkdarkblue');
+
 
     const query = useStaticQuery(graphql`
         query {
@@ -47,7 +50,8 @@ export default function Products() {
                         overflow='hidden'
                         variant='outline'
                         key={products.frontmatter.image.id}
-                        m={4}>
+                        m={4}
+                        bg={cardBgColor}>
                         <Flex justifyContent='center' >
                             <GatsbyImage key={products.frontmatter.image.id}
                                 alt={products.frontmatter.title}
@@ -56,11 +60,11 @@ export default function Products() {
                         </Flex>
                         <Stack>
                             <CardBody maxW='sm'>
-                                <Heading size='md'
+                                <Heading size='md' as='h3'
                                     textAlign={{ base: 'center', md: 'start' }}>
                                     {products.frontmatter.title}
                                 </Heading>
-                                <Text py='2'>
+                                <Text pt={4}>
                                     {products.internal.content}
                                 </Text>
                             </CardBody>
