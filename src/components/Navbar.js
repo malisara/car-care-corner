@@ -1,24 +1,21 @@
 import React from 'react';
-import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Button,
-    Stack,
-    Collapse,
-    Link,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-    useColorMode
-} from '@chakra-ui/react';
 
 import {
-    HamburgerIcon,
-    CloseIcon,
-    MoonIcon
-} from '@chakra-ui/icons';
+    Box,
+    Button,
+    Collapse,
+    Flex,
+    IconButton,
+    Link,
+    Stack,
+    Text,
+    useBreakpointValue,
+    useColorMode,
+    useColorModeValue,
+    useDisclosure,
+} from '@chakra-ui/react';
+import { CloseIcon, HamburgerIcon, MoonIcon } from '@chakra-ui/icons';
+
 
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();

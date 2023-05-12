@@ -1,11 +1,13 @@
 import React from 'react';
 import { StaticImage } from "gatsby-plugin-image";
+
 import {
     Heading,
     Flex,
     Text,
     useColorModeValue,
 } from '@chakra-ui/react';
+
 
 export default function HeroBanner() {
     const textColor = useColorModeValue('darkblue', 'offwhite');

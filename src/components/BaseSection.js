@@ -1,16 +1,18 @@
 import React from 'react';
+
 import {
     Box,
-    Heading,
     Flex,
-    VStack,
+    Heading,
     useColorModeValue,
+    VStack
 } from '@chakra-ui/react';
 
+
 export default function BaseSection({
-    title = false,
+    title,
     children,
-    bgColor,
+    bgColor = false,
     paddingBottom = { base: 5, md: 10 } }) {
     const bluishBg = useColorModeValue('offwhite', 'darkdarkblue');
     const whiteBg = useColorModeValue('white', 'darkblue');

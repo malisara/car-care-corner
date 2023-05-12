@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+
+import { useForm } from "react-hook-form";
 import {
-    Button, Input, Stack, useColorModeValue, Textarea, AlertDialog,
+    AlertDialog,
     AlertDialogBody,
-    AlertDialogHeader,
-    AlertDialogContent,
-    AlertDialogOverlay,
     AlertDialogCloseButton,
+    AlertDialogContent,
+    AlertDialogHeader,
+    AlertDialogOverlay,
+    Button,
     FormControl,
     FormHelperText,
     Heading,
+    Input,
+    Stack,
+    Textarea,
+    useColorModeValue,
     useDisclosure,
 } from '@chakra-ui/react';
-import { useForm } from "react-hook-form";
 
 
 const validationMessages = {
@@ -129,6 +135,6 @@ export default function ContactForm() {
                 </AlertDialog>
 
             </form>
-        </div >
+        </div>
     );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Flex, useColorModeValue, Text } from '@chakra-ui/react';
+
 import { EmailIcon, PhoneIcon } from '@chakra-ui/icons';
+import { Flex, Text, useColorModeValue } from '@chakra-ui/react';
 
 
 export default function Footer() {

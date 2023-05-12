@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, Icon, useColorModeValue, Link } from '@chakra-ui/react';
 
 import { EmailIcon } from '@chakra-ui/icons';
+import { Icon, Link, Text, useColorModeValue } from '@chakra-ui/react';
 import { MdFacebook } from 'react-icons/md';
+
 import TextParagraph from './TextParagraph';
 
 

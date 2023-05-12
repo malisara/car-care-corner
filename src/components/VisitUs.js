@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     Flex,
     Heading,
@@ -8,6 +9,7 @@ import {
     Td,
     Tr,
 } from '@chakra-ui/react';
+
 import TextParagraph from './TextParagraph';
 
 

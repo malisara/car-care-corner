@@ -1,4 +1,8 @@
 import * as React from "react";
+
+import { Flex, Tag, TagLabel, } from '@chakra-ui/react';
+import { graphql, useStaticQuery } from 'gatsby';
+
 import BaseSection from "../components/BaseSection";
 import ContactForm from "../components/ContactForm";
 import ContactInfo from "../components/ContactInfo";
@@ -8,8 +12,7 @@ import Location from "../components/Location";
 import Navbar from '../components/Navbar';
 import Products from "../components/Products";
 import VisitUs from "../components/VisitUs";
-import { useStaticQuery, graphql } from 'gatsby';
-import { Flex, Tag, TagLabel, } from '@chakra-ui/react';
+
 
 const dateToday = new Date();
 const openingHours = [
@@ -57,14 +60,16 @@ export default function Home() {
         </Flex>
       </BaseSection>
 
-      <BaseSection title='Contact' bgColor={true}>
-        <Flex wrap='wrap' w='80%' alignItems='start' justifyContent='center'>
+      <BaseSection title='Contact' bgColor={true} justifyContent='end'>
+        <Flex direction={{ base: 'column', lg: 'row' }} w='80%'
+          alignItems='center' textAlign={{ base: 'center', lg: 'start' }}
+          justifyContent='center'>
           <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
             <ContactInfo />
           </Flex>
           <ContactForm />
         </Flex>
-      </BaseSection>
+      </BaseSection >
 
       <BaseSection
         title='Visit us'
@@ -84,9 +89,9 @@ export default function Home() {
           wrap='wrap'
           w='80%'
           alignItems='center' j
-          ustifyContent='center'
+          justifyContent='center'
           pt={{ base: '2', lg: '10' }}
-          justifyContent='center'>
+        >
 
           <Flex direction='column' w={{ base: 'full', lg: '25%' }}>
             <VisitUs openingHours={openingHours}></VisitUs>
@@ -94,8 +99,6 @@ export default function Home() {
           <Location />
         </Flex>
       </BaseSection >
-
-
 
       <Footer />
 

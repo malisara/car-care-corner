@@ -1,6 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+
 import {
     Card,
     CardBody,
@@ -10,6 +9,9 @@ import {
     Text,
     useColorModeValue
 } from '@chakra-ui/react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+
 import { productImage } from '../styles/index.module.css';
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+
 
 const storeLocation = [51.505, -0.09];
 export default function Location() {
@@ -20,7 +22,5 @@ export default function Location() {
                 </Popup>
             </Marker>
         </MapContainer>
-
-
     );
 }
