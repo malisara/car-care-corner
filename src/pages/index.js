@@ -122,16 +122,12 @@ function checkHowLongOpen(holidays) {
     return storeOpenOrClosed(0);
   }
 
-  if (dayIndexToday === 6) {
-    if (dayIndexToday > 0 && dayIndexToday <= 5) {
-      return storeOpenOrClosed(1);
-    }
+  else if (dayIndexToday === 6) {
+    return storeOpenOrClosed(1);
   }
 
   else {
-    if (dayIndexToday > 0 && dayIndexToday <= 5) {
-      return storeOpenOrClosed(2);
-    }
+    return storeOpenOrClosed(2);
   }
 
 }
