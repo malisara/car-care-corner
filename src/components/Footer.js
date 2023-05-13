@@ -8,7 +8,7 @@ export default function Footer() {
     const bluishBg = useColorModeValue('offwhite', 'darkdarkblue');
 
     return (
-        <Flex //as='footer'
+        <Flex as='footer'
             bg={bluishBg}
             h='fit'
             alignItems='center'
@@ -27,7 +27,6 @@ export default function Footer() {
             <Text as='i'>
                 <EmailIcon mx={4} />carcompany@mail.com
             </Text>
-
 
         </Flex >
     );
