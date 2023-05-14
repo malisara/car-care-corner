@@ -8,6 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: "/car-care-corner",
   siteMetadata: {
     title: `Car Care Corner`,
   },
