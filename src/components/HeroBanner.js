@@ -6,7 +6,7 @@ import { Flex, Text, Box } from "@chakra-ui/react";
 export default function HeroBanner() {
   return (
     <Flex height={{ base: 600, xl: 800 }} width="full">
-      <Flex height="full" width="100vw">
+      <Flex height="full" width="100vw" zIndex={-1}>
         <StaticImage
           src="../images/hero-image.png"
           alt="Sport car"
